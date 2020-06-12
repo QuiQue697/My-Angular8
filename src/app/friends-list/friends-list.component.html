@@ -1,0 +1,66 @@
+<p>friends-list works!</p>
+
+<div class="row">
+    <div class="col-md-6 pull-right pull-left">Col-6
+        <div class="card mr-md-2">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <img id="friends" src="../assets/friend-04.png" width="130" height="130" alt="friend 2">
+                            <figcaption style="text-align: center;">Lionel</figcaption>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">xx connections</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">xx Posts</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- <div class="col-md-1 pull-left pull-right">Col-1</div> -->
+
+    <div class="col-md-6 pull-right pull-left">Col-6
+        <div class=" mr-md-2">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let contact of contacts">
+
+                        <td>{{ contact.id }}</td>
+                        <td> {{ contact.name }}</td>
+                        <td> {{ contact.email }}</td>
+                        <td>
+                            <button class="btn btn-primary" (click)="selectContact(contact)"> Show details</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="card text-center" *ngIf="selectedContact">
+                <div class="card-header">
+                    # {{selectedContact.id}}
+                </div>
+                <div class="card-block">
+                    <h4 class="card-title">{{selectedContact.name}}</h4>
+                    <p class="card-text">
+                        {{selectedContact.description}}
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

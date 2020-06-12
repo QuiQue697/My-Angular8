@@ -1,0 +1,59 @@
+<p>users-list works!</p>
+
+<p>Welcome you are in the Friends Book Website</p>
+<div class="row">
+    <div class="col-md-5 pull-right pull-left">Col-5
+        <!-- <div class="card mr-md-2"> -->
+        <div class="card">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <img id="friends" src="../assets/friend-08.png" width="140" height="140" alt="friend 8">
+                            <figcaption style="text-align: center;">Roberta</figcaption>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">xx connections</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">xx Posts</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- <div class="col-md-1 pull-left pull-right">Col-1</div> -->
+
+    <div class="col-md-7 ">Col-7
+        <div class=" mr-md-2">
+            <table class="table table-hover">
+                <tbody>
+                    <tr *ngFor="let contact of contacts">
+
+                        <td>{{ contact.id }}</td>
+                        <td> {{ contact.name }}</td>
+                        <td>
+                            <button class="btn btn-primary" (click)="selectContact(contact)">Request Pending</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="card text-center" *ngIf="selectedContact">
+                <div class="card-header">
+                    # {{selectedContact.id}}
+                </div>
+                <div class="card-block">
+                    <h4 class="card-title">{{selectedContact.name}}</h4>
+                    <p class="card-text">
+                        {{selectedContact.description}}
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

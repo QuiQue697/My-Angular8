@@ -1,0 +1,54 @@
+<!-- <h2>Login</h2> -->
+<div class="row">
+    <div class="col-12">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <table class="table table-bordered">
+                <tr class="table-dark text-center">
+                    <td scope="col" style="color: #000; font-weight: 700;">Login</td>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td scope="row">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" placeholder="Username" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                    <div *ngIf="f.username.errors.required">Username is required</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" placeholder="Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            <div class="form-group">
+                                <a routerLink="/forgot-password">Forgot Password</a>
+                                <button [disabled]="loading" class="btn btn-primary pull-right">
+                                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                    Login
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            <small class=float-left>        
+                                <a routerLink="/register" class="btn btn-link">Register</a>
+                            </small>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>

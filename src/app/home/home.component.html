@@ -1,0 +1,96 @@
+<p>home works!</p>
+<h2>Hi {{currentUser.firstName}}!</h2>
+<p>Welcome you are in the Friends Book Website</p>
+<h4>All Registered Users:</h4>
+<ul>
+    <li *ngFor="let user of users">
+        {{user.username}} ({{user.firstName}} {{user.lastName}} {{user.email}}) - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+    </li>
+</ul>
+
+<!-- *** Modified 06/05/2020 *** -->
+<!-- <div class="card mt-4">       
+    <h4 class="card-header">Welcome you are in the Friends Book Website</h4>
+    <div class="card-body">
+        <p>You're logged in with Angular 8 & JWT!!</p>
+        <p>Your role is: <strong>{{currentUser.role}}</strong>.</p>
+        <p>This page can be accessed by <u>all authenticated users</u>.</p>
+        <p class="mb-1">Current user from secure api end point:</p>
+        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+        <ul *ngIf="userFromApi">
+            <li>{{userFromApi.firstName}} {{userFromApi.lastName}}</li>
+        </ul>
+    </div>
+</div> -->
+
+<div class="row">
+    <div class="col-md-5 pull-right pull-left">Col-5
+
+        <div class="card">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col" *ngFor="let user of users">
+                            <img id="friends" src="../assets/friend-02.png" width="140" height="140" alt="friend 2">
+                            <!-- <figcaption style="text-align: center;">{{currentUser.firstName}}</figcaption>   //*** Modified 06/09/2020 ***// -->
+                            <figcaption style="text-align: center;">{{user.firstName}}</figcaption>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">xx connections</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">xx Posts</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-7 ">Col-7
+        <div class=" mr-md-2">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 offset-md-3">
+                        <p>Choose File</p>
+                        <div class="form-group">
+                            <input type="file" name="image" (change)="fileProgress($event)" />
+                            <input type="file" name="image" (change)="onFileSelected($event)" />
+                        </div>
+                        <div *ngIf="fileUploadProgress">
+                            Upload progress: {{ fileUploadProgress }}
+                        </div>
+                        <div class="image-preview mb-3" *ngIf="previewUrl">
+                            <img [src]="previewUrl" height="300" />
+                        </div>
+
+                        <div class="mb-3" *ngIf="uploadedFilePath">
+                            {{uploadedFilePath}}
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-primary" (click)="onUpload()">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- <div class="card text-center" *ngIf="selectedContact">
+                <div class="card-header">
+                    # {{selectedContact.id}}
+                </div>
+                <div class="card-block">
+                    <h4 class="card-title">{{selectedContact.name}}</h4>
+                    <p class="card-text">
+                        {{selectedContact.description}}
+                    </p>
+                </div> 
+
+            </div>-->
+            <!-- </div>
+    </div>
+</div> -->
