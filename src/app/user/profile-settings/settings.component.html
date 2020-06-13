@@ -1,0 +1,177 @@
+<p>profile settings works!</p>
+
+<div class="row">
+    <div class="col-12">
+        <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <th scope="col" style="color: red;">Profile Settings</th>
+                    <th scope="col">Change Password</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">
+                            <div class="form-group">
+                                Robert
+                                <!-- <input type="text" placeholder="New Password" formControlEmail="resetPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.resetPassword.errors }" /> -->
+                                <!-- <div *ngIf="submitted && f.resetPassword.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                                </div> -->
+                            </div>
+                        </td>
+                        <!-- </tr>
+                    <tr> -->
+                        <td scope="row">
+                            <div class="form-group">
+                                Downey
+                                <!-- <input type="matchPassword" placeholder="Confirm Password" formControlName="matchPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.matchPassword.errors }" /> -->
+                                <!-- <div *ngIf="submitted && f.matchPassword.errors" class="invalid-feedback">
+                                    <div *ngIf="f.matchPassword.errors.required">Password must match</div> -->
+                                <!-- <div *ngIf="f.matchPassword.errors.minlength">Password must be at least 6 characters</div> 
+                                </div>-->
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            <div class="form-group">
+                                Male
+                            </div>
+                        </td>
+                        <td scope="row">
+                            <div class="form-group">
+                                01/10/1956
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            <div class="form-group">
+                                robert@gmail.com
+                            </div>
+                        </td>
+                        <td scope="row">
+                            <div class="form-group">
+                                98347237493
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            <div class="form-group">
+                                USA
+                            </div>
+                        </td>
+                        <td scope="row">
+                            <div class="form-group">
+                                Wisconsin
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row" colspan="2">
+                            <div class="form-group">
+                                <button [disabled]="loading" class="btn btn-primary">
+                                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                        SAVE
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+<!-- ***** Below code is only for references *****-->
+<!-- <div class="col-12">
+    <div class="card">
+        <div class="card-header bg-warning">
+            <b>Today's Date:</b> {{todayNumber | date}} -->
+<!-- <div *ngIf="EmployeeList.length == 0">No New Employee Registered </div>
+            <div *ngIf="EmployeeList.length == 1">There is {{EmployeeList.length}} New Employee Registered</div>
+            <div *ngIf="EmployeeList.length > 1">There are {{EmployeeList.length}} New Employees Registered</div> -->
+<!-- </div>
+
+        <div class="card-body"> -->
+<!-- <div class="row">
+                <div class="col-12">
+                    <div class="text-danger" *ngIf="errorItem">
+                        You have already this Employee Registered in the list
+                    </div>
+                </div>
+            </div> -->
+<!-- <div class="row">
+                <div class="col-12">
+                    <table class="table table-border">
+                        <thead> -->
+<!-- <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th *ngIf="employee">Dept</th>
+                                <th>City</th>
+                                <th>Email</th>
+                                <th>Salary</th>
+                                <th>DOB</th>
+                            </tr> -->
+<!-- <tr>
+                                <td>Robert</td>
+                                <td>Downey</td>
+                            </tr>
+                            <tr>
+                                <td>Male</td>
+                                <td>01/10/1956</td>
+                            </tr>
+                            <tr>
+                                <td>robert@gmail.com</td>
+                                <td>98347237493</td>
+                            </tr>
+                            <tr>
+                                <td>USA</td>
+                                <td>Wisconsin</td>
+                            </tr>
+                            <tr>
+                                <td scope="row" colspan="2">
+                                    <div class="form-group">
+                                        <button [disabled]="loading" class="btn btn-primary">
+                                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                                SAVE
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </thead> -->
+<!-- <tbody>
+                            <tr defColOnEvent *ngFor="let cart of EmployeeList">
+                                <td> {{ cart.employee_id }} </td>
+                                <td> {{ cart.employee_fName }} </td>
+                                <td> {{ cart.employee_lName }} </td>
+                                <td *ngIf="employee"> {{ cart.employee_dep }} </td>
+                                <td> {{ cart.employee_city }} </td>
+                                <td> {{ cart.employee_email }} </td>
+                                <td> {{ cart.employee_salary | currency: 'USD':true }} </td>
+                                <!-- <td ngNonBindable> {{ cart.employee_DOB | date:'longDate' }} </td> 
+                                <td> {{ cart.employee_DOB | date:'longDate' }} </td>-->
+<!-- <td *ngFor="let employee of Employees"> {{ cart.employee_DOB | pipescomp }} </td> -->
+<!-- <td> <input type="text" [(ngModel)]="convertstring"></td> -->
+<!-- <td>
+                                    <button class="btn btn-info btn-sm" title="Remove item" (click)="removeItem(cart)"><i class="fas fa-trash fa-sm"></i></button> -->
+<!-- <button class="btn btn-primary" title="Convert String" (click)="change(convertstring)">DOB</button> -->
+<!-- </td>
+                            </tr>
+                            <tr *ngIf="loading">
+                                <td colspan="5" text-align="center">Fetching Employees</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

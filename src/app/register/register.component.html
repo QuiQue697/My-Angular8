@@ -1,0 +1,83 @@
+<p style="text-align: center;">Registration works!</p>
+<div class="row">
+    <div class="col-12">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <table class="table table-bordered">
+                <tr class="table-dark text-center">
+                    <td scope="col" style="color: #000; font-weight: 700;">Registration</td>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td scope="row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" placeholder="First Name" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" placeholder="Last Name" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" placeholder="Email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">Email is required</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" placeholder="Username" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                    <div *ngIf="f.username.errors.required">Username is required</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" placeholder="Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            <div class="form-group">
+                                <a routerLink="/login" class="btn btn-link">Login</a>
+                                <button [disabled]="loading" class="btn btn-primary pull-right">
+                                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                    Register
+                                </button>
+                                <br>
+                                <a routerLink="/reset-password" class="btn btn-link">Reset Password</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
