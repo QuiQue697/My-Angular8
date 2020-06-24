@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+// *** Next two Added for File Upload ***/
+// import { FileSelectDirective } from 'ng2-file-upload';
+// import { FormsModule } from '@angular/forms';
+
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers/fake-backend';
 
@@ -29,30 +33,32 @@ import { UploadComponent } from './upload/upload.component';
 @NgModule({
   imports: [
     BrowserModule,
+    // FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule 
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,  
-    RegisterComponent, 
-    AdminComponent, 
+    LoginComponent,
+    RegisterComponent,
+    AdminComponent,
+    // FileSelectDirective,
 
     AlertComponent,
     NetworkComponent,
     FriendsListComponent,
     SettingsComponent,
     UsersListComponent,
-    ForgotPasswordComponent,    
+    ForgotPasswordComponent,
     ResetPasswordComponent, UploadComponent, AdminComponent,
   ],
 
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    
+
     // provider used to create fake backend
     fakeBackendProvider
   ],

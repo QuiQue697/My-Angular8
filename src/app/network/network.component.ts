@@ -27,14 +27,14 @@ export class NetworkComponent implements OnInit {
   constructor( 
     public dataService: DataService,
     private userService: UserService,
-    private authenticationService: AuthenticationService,    
+    private authenticationService: AuthenticationService,
     private http: HttpClient
     ) { 
       this.currentUser = this.authenticationService.currentUserValue;
     }
 
   ngOnInit() {
-    this.contacts = this.dataService.getContacts();   
+    this.contacts = this.dataService.getContacts();
   // }
 
   // ngOnInit() {
@@ -66,5 +66,4 @@ export class NetworkComponent implements OnInit {
   public selectContact(contact){
     this.selectedContact = contact;
   }
-} 
- 
+}

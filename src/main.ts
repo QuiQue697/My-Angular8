@@ -1,6 +1,8 @@
 import './polyfills';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+// import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 
 // import { enableProdMode } from '@angular/core';            *** MDisabled 06/10/2020 ***
@@ -22,3 +24,11 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 // Otherwise, log the boot error
 // }).catch(err => console.error(err)); *** Modified 06/04/2020 ***
+
+// *** Enable CORS method ***//
+  // async function bootstrap() {
+  //   const app = await NestFactory.create(AppModule);
+  //   app.enableCors();
+  //   await app.listen(3000);
+  // }
+  // bootstrap();

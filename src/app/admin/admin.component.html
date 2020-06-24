@@ -1,5 +1,5 @@
 <p>admin works!</p>
-<div class="card mt-4">
+<!-- <div class="card mt-4">
     <h4 class="card-header">Admin</h4>
     <div class="card-body">
         <p>This page can be accessed <u>only by administrators</u>.</p>
@@ -8,5 +8,55 @@
         <ul *ngIf="users">
             <li *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>
         </ul>
+    </div>
+</div> -->
+
+
+<div class="row">
+    <div class="col-md-6 pull-right pull-left">Col-6
+        <div class="card mr-md-2 row text-center">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <img id="admin" src="../assets/friend-02.png" width="130" height="130" alt="friend 2">
+                            <figcaption style="text-align: center;">{{ currentUser.firstName }}</figcaption>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">xx connections</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">xx Posts</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- <div class="col-md-1 pull-left pull-right">Col-1</div> -->
+
+    <div class="col-md-6 pull-right pull-left">Col-6
+        <div class=" mr-md-2">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>LastName</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="users">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
+                    <tr *ngFor="let user of users">
+                        <td>{{ user.id }}</td>
+                        <td colspan="3">{{ user.firstName }} {{ user.lastName }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

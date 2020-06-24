@@ -5,10 +5,11 @@ export class User {
     username: string;
     password: string;
     firstName: string;
-    lastName: string;    
+    lastName: string;
     email: string;
-    // DOB: string;    
+    // DOB: string;
     role: Role;
+    Admin: string;
     // token?: string; *** Modified 06/09/2020 ***
     token: string;
 }

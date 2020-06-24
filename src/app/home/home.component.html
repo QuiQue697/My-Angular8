@@ -1,11 +1,13 @@
-<p>home works!</p>
-<h2>Hi {{currentUser.firstName}}!</h2>
+<p>My home works!</p>
+<!-- <h2>Hi {{currentUser.firstName}}!</h2> -->
+<!--*** Modified: 2020/06/19 *** -->
 <p>Welcome you are in the Friends Book Website</p>
 <h4>All Registered Users:</h4>
 <ul>
-    <li *ngFor="let user of users">
-        {{user.username}} ({{user.firstName}} {{user.lastName}} {{user.email}}) - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
-    </li>
+    <!-- <li *ngFor="let user of users">
+        {{user.username}} ({{user.firstName}} {{user.lastName}} {{user.email}}) - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>  
+    </li> -->
+    <!--*** Modified: 2020/06/19 *** -->
 </ul>
 
 <!-- *** Modified 06/05/2020 *** -->
@@ -24,16 +26,17 @@
 </div> -->
 
 <div class="row">
-    <div class="col-md-5 pull-right pull-left">Col-5
+    <div class="col-md-4 pull-right pull-left">Col-4
 
-        <div class="card">
+        <div class="card row text-center">
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col" *ngFor="let user of users">
+                        <!-- <th scope="col" *ngFor="let user of users">-->
+                        <th scope="col">
                             <img id="friends" src="../assets/friend-02.png" width="140" height="140" alt="friend 2">
                             <!-- <figcaption style="text-align: center;">{{currentUser.firstName}}</figcaption>   //*** Modified 06/09/2020 ***// -->
-                            <figcaption style="text-align: center;">{{user.firstName}}</figcaption>
+                            <figcaption style="text-align: center;">{{currentUser.firstName}}</figcaption>
                         </th>
                     </tr>
                 </thead>
@@ -49,14 +52,14 @@
         </div>
     </div>
 
-    <div class="col-md-7 ">Col-7
+    <div class="col-md-8 ">Col-8
         <div class=" mr-md-2">
 
-            <div class="container">
+            <div class="container align-items-end">
                 <div class="row">
-                    <div class="col-md-7 offset-md-3">
-                        <p>Choose File</p>
-                        <div class="form-group">
+                    <div class="col-md-8 offset-md-3">
+                        <!-- <p>Choose File</p> -->
+                        <div class="form-group ">
                             <input type="file" name="image" (change)="fileProgress($event)" />
                             <input type="file" name="image" (change)="onFileSelected($event)" />
                         </div>
@@ -70,10 +73,14 @@
                         <div class="mb-3" *ngIf="uploadedFilePath">
                             {{uploadedFilePath}}
                         </div>
-
                         <div class="form-group">
-                            <button class="btn btn-primary" (click)="onUpload()">Submit</button>
+                            <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
                         </div>
+
+                        <!-- <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+                        <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                                 Upload an Image
+                            </button> -->
                     </div>
                 </div>
             </div>
@@ -88,9 +95,8 @@
                     <p class="card-text">
                         {{selectedContact.description}}
                     </p>
-                </div> 
-
-            </div>-->
-            <!-- </div>
+                </div>
+            </div> -->
+        </div>
     </div>
-</div> -->
+</div>

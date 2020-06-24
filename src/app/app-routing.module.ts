@@ -19,62 +19,61 @@ import { ResetPasswordComponent } from './user/reset-password/reset-password.com
 // import { NgModule } from '@angular/core';
 // import { Observable } from 'rxjs'
 
-const routes: Routes = [  
-  { 
-    path: '', 
-    component: HomeComponent, 
-    canActivate: [AuthGuard] 
-  }, 
+const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+    canActivate: [AuthGuard]
+  },
 
-  { 
-    path: 'admin', 
-    component: AdminComponent, 
-    canActivate: [AuthGuard], 
+  {
+    path: 'admin',
+    component: AdminComponent,
+    canActivate: [AuthGuard],
     data: { roles: [Role.Admin] }
   },
 
-  // { path: '', 
+  // { path: '',
   //   component: HomeComponent },
 
-  // { path: '', component: HomeComponent, canActivate: [AuthGuard] },     
+  // { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   // { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { roles: [Role.Admin]} },
-  
-  // { path: 'admin', component: AdminComponent },    
+  // { path: 'admin', component: AdminComponent },
 
   {
-    path: 'login', 
+    path: 'login',
     component: LoginComponent
   },
-  { 
-    path: 'register', 
+  {
+    path: 'register',
     component: RegisterComponent
   },
-  { 
-    path: 'users-list', 
+  {
+    path: 'users-list',
     component: UsersListComponent
   },
-  { 
-    path: 'network', 
+  {
+    path: 'network',
     component: NetworkComponent
   },
-  { 
-    path: 'friends-list', 
+  {
+    path: 'friends-list',
     component: FriendsListComponent
   },
-  { 
-    path: 'settings', 
+  {
+    path: 'settings',
     component: SettingsComponent
   },
-  { 
-    path: 'reset-password', 
+  {
+    path: 'reset-password',
     component: ResetPasswordComponent
   },
-  { 
-    path: 'forgot-password', 
+  {
+    path: 'forgot-password',
     component: ForgotPasswordComponent
   },
-  
-  // otherwise redirect to home
+
+// otherwise redirect to home
   { path: '**', redirectTo: '' },
 
 ];
