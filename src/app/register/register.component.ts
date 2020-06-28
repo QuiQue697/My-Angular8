@@ -12,7 +12,7 @@ import { AuthenticationService } from '../_services/authentication.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
- 
+
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   loading = false;

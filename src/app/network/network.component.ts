@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../_services/data.service';
-
+import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
+
 import { User } from '../_models/user';
 import { UserService } from '../_services/user.service';
 import { AuthenticationService } from '../_services/authentication.service';
 
 import { HttpClient } from '@angular/common/http';
+
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -16,34 +19,35 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NetworkComponent implements OnInit {
   loading = false;
+  contacts: any;
+  selectedContact: any;
+  users: User[] = [];
   currentUser: User;
-  contacts;
-  selectedContact;
-  users: User[];
+  currentUserSubscription: Subscription;
   userFromApi: User;
 
   // constructor(public dataService: DataService) { }
 
   constructor( 
     public dataService: DataService,
-    private userService: UserService,
     private authenticationService: AuthenticationService,
+    private userService: UserService,
     private http: HttpClient
-    ) { 
-      this.currentUser = this.authenticationService.currentUserValue;
+    ) {
+      // this.currentUser = this.authenticationService.currentUserValue;
+       this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
+       this.currentUser = user;
+      });
     }
 
   ngOnInit() {
-    this.contacts = this.dataService.getContacts();
-  // }
-
-  // ngOnInit() {
-    // this.loadAllUsers();
-
     this.loading = true;
-    this.userService.getById(this.currentUser.id).pipe(first()).subscribe(user => {
-        this.loading = false;
-        this.userFromApi = user;
+    // this.userService.getById(this.selectedContact.id).pipe(first()).subscribe(user => {
+    //     this.loading = false;
+    //     this.userFromApi = user;
+    this.userService.getAll().pipe(first()).subscribe(users => {
+      this.loading = false;
+      this.users = users;
     });
   }
 
@@ -51,19 +55,19 @@ export class NetworkComponent implements OnInit {
     this.userService.delete(id)
         .pipe(first())
         .subscribe(() => this.loadAllUsers());
-}
+  }
 
   private loadAllUsers() {
     this.userService.getAll()
         .pipe(first())
         //  .subscribe(users => this.users = users);
         .subscribe(users => {
-          this.loading = false; 
-          this.users = users; 
+          this.loading = false;
+          this.users = users;
         });
-}
+  }
 
-  public selectContact(contact){
+  public selectContact(contact) {
     this.selectedContact = contact;
   }
 }

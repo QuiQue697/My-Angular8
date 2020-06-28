@@ -35,22 +35,24 @@
                         <th>#</th>
                         <th>First Friend</th>
                         <th>Email</th>
-                        <th>Actions</th>
+                        <th>Actions</th> 
                     </tr>
                 </thead> -->
                 <tbody>
-                    <tr *ngFor="let contact of contacts">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
+                    <!-- <tr *ngFor="let contact of contacts"> -->
+                    <tr *ngFor="let user of users">
 
-                        <td>{{ contact.id }}</td>
-                        <td> {{ contact.name }}</td>
+                        <td>{{ user.id }}</td>
+                        <td> {{ user.firstName }}</td>
                         <!--<td> {{ contact.email }}</td> -->
                         <td>
-                            <button class="btn btn-primary" (click)="selectContact(contact)">Request Pending</button>
+                            <button class="btn btn-primary" (click)="selectContact(user)">Request Pending</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <div class="card text-center" *ngIf="selectedContact">
+            <!-- <div class="card text-center" *ngIf="selectedContact">
                 <div class="card-header">
                     # {{selectedContact.id}}
                 </div>
@@ -60,8 +62,7 @@
                         {{selectedContact.description}}
                     </p>
                 </div>
-
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

@@ -19,10 +19,13 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "@nestjs/typeorm": "^7.1.0",
     "ng2-file-upload": "^1.4.0",
-    "rxjs": "~6.4.0",
+    "rxjs": "^6.4.0",
     "rxjs-compat": "^6.5.5",
+    "sqlite3": "^4.2.0",
     "tslib": "^1.10.0",
+    "typeorm": "^0.2.25",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {

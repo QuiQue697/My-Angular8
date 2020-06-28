@@ -3,18 +3,18 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from '../environments/environment';
 import { User } from '../_models/user';
-import { EmailValidator } from '@angular/forms';
+// import { EmailValidator } from '@angular/forms';
 
 
 @Injectable({ providedIn: 'root' })
 
 export class UserService {
-    apiBaseURL: string;
+    // apiBaseURL: string;  // *** disabled 06/27/2020 ***
     constructor(private http: HttpClient) { }
 
     getAll() {
         return this.http.get<User[]>(`${environment.apiUrl}/users`);
-        // return this.http.get<User[]>(`/users`); *** Modified 06/09/2020 ***
+        // return this.http.get<User[]>(`/users`); // *** Modified 06/09/2020 ***
     }
 
     register(user: User) {
@@ -22,7 +22,8 @@ export class UserService {
         // return this.http.post(`/users/register`, user);  *** Modified 06/09/2020 ***
     }
 
-    // authenticate(user: User) {  *** Modified 06/19/2020 ***
+
+    // authenticate(user: User) {  // *** Modified 06/19/2020 ***
     //     return this.http.post<any>(this.apiBaseURL + 'users/authenticate', { email, password } );
     // }
 

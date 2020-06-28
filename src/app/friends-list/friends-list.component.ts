@@ -24,7 +24,7 @@ export class FriendsListComponent implements OnInit {
   currentUser: User;
   currentUserSubscription: Subscription;
 
-  // constructor(public dataService: DataService) { }
+  // constructor(public dataService: DataService) {  }
     // ngOnInit() {
     //   this.contacts = this.dataService.getContacts();
     // }

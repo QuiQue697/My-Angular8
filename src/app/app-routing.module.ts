@@ -15,10 +15,6 @@ import { SettingsComponent } from './user/profile-settings/settings.component';
 import { ForgotPasswordComponent } from './password/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
 
-// import { BrowserModule } from '@angular/platform-browser';
-// import { NgModule } from '@angular/core';
-// import { Observable } from 'rxjs'
-
 const routes: Routes = [
   {
     path: '',

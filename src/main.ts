@@ -17,7 +17,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 // platformBrowserDynamic().bootstrapModule(AppModule).then(ref => {  *** Modified 06/04/2020 ***
   // Ensure Angular destroys itself on hot reloads.
-  // if (window['ngRef']) {   
+  // if (window['ngRef']) {
   //   window['ngRef'].destroy();
   // }
   // window['ngRef'] = ref;
@@ -26,9 +26,9 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 // }).catch(err => console.error(err)); *** Modified 06/04/2020 ***
 
 // *** Enable CORS method ***//
-  // async function bootstrap() {
-  //   const app = await NestFactory.create(AppModule);
-  //   app.enableCors();
-  //   await app.listen(3000);
-  // }
-  // bootstrap();
+// async function bootstrap() {
+//     const app = await NestFactory.create(AppModule);
+//     app.enableCors();
+//     await app.listen(3000);
+//   }
+// bootstrap();

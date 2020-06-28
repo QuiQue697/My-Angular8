@@ -9,7 +9,10 @@ export class User {
     email: string;
     // DOB: string;
     role: Role;
-    Admin: string;
     // token?: string; *** Modified 06/09/2020 ***
     token: string;
+}
+
+export class Admin {
+    Admin: Role;
 }
