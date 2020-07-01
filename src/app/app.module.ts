@@ -47,7 +47,9 @@ import { UploadComponent } from './upload/upload.component';
     SettingsComponent,
     UsersListComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent, UploadComponent, AdminComponent,
+    ResetPasswordComponent,
+    UploadComponent,
+    AdminComponent,
   ],
 
   providers: [

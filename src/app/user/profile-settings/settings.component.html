@@ -2,85 +2,92 @@
 
 <div class="row">
     <div class="col-12">
-        <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
-            <table class="table table-bordered table-hover">
-                <thead class="table-dark">
-                    <th scope="col" style="color: red;">Profile Settings</th>
-                    <th scope="col">Change Password</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">
-                            <div class="form-group">
-                                Robert
-                                <!-- <input type="text" placeholder="New Password" formControlEmail="resetPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.resetPassword.errors }" /> -->
-                                <!-- <div *ngIf="submitted && f.resetPassword.errors" class="invalid-feedback">
+        <!-- <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()"> -->
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <th scope="col" style="color: red;">Profile Settings</th>
+                <th scope="col">Change Password</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row">
+                        <div class="form-group">
+                            (Robert)
+                            <!-- <img [src]="profile.image" class="user-img" /> -->
+                            <!-- {{ profile.username }} -->
+                            <!-- <p>{{ profile.bio }}</p> -->
+                            <!-- {{ profile.firstName }} -->
+
+                            <!-- <input type="text" placeholder="New Password" formControlEmail="resetPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.resetPassword.errors }" /> -->
+                            <!-- <div *ngIf="submitted && f.resetPassword.errors" class="invalid-feedback">
                                     <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
                                 </div> -->
-                            </div>
-                        </td>
-                        <!-- </tr>
+                        </div>
+                    </td>
+                    <!-- </tr>
                     <tr> -->
-                        <td scope="row">
-                            <div class="form-group">
-                                Downey
-                                <!-- <input type="matchPassword" placeholder="Confirm Password" formControlName="matchPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.matchPassword.errors }" /> -->
-                                <!-- <div *ngIf="submitted && f.matchPassword.errors" class="invalid-feedback">
+                    <td scope="row">
+                        <div class="form-group">
+                            (Downey)
+                            <!-- {{ profile.lastName }} -->
+                            <!-- <input type="matchPassword" placeholder="Confirm Password" formControlName="matchPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.matchPassword.errors }" /> -->
+                            <!-- <div *ngIf="submitted && f.matchPassword.errors" class="invalid-feedback">
                                     <div *ngIf="f.matchPassword.errors.required">Password must match</div> -->
-                                <!-- <div *ngIf="f.matchPassword.errors.minlength">Password must be at least 6 characters</div> 
+                            <!-- <div *ngIf="f.matchPassword.errors.minlength">Password must be at least 6 characters</div> 
                                 </div>-->
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">
-                            <div class="form-group">
-                                Male
-                            </div>
-                        </td>
-                        <td scope="row">
-                            <div class="form-group">
-                                01/10/1956
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">
-                            <div class="form-group">
-                                robert@gmail.com
-                            </div>
-                        </td>
-                        <td scope="row">
-                            <div class="form-group">
-                                98347237493
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">
-                            <div class="form-group">
-                                USA
-                            </div>
-                        </td>
-                        <td scope="row">
-                            <div class="form-group">
-                                Wisconsin
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row" colspan="2">
-                            <div class="form-group">
-                                <button [disabled]="loading" class="btn btn-primary">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row">
+                        <div class="form-group">
+                            Male
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="form-group">
+                            01/10/1956
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row">
+                        <div class="form-group">
+                            (robert@gmail.com)
+                            <!-- {{ profile.userEmail }} -->
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="form-group">
+                            98347237493
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row">
+                        <div class="form-group">
+                            USA
+                        </div>
+                    </td>
+                    <td scope="row">
+                        <div class="form-group">
+                            Wisconsin
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row" colspan="2">
+                        <div class="form-group">
+                            <button [disabled]="loading" class="btn btn-primary">
                                     <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                                         SAVE
                                 </button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </form>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- </form> -->
     </div>
 </div>
 

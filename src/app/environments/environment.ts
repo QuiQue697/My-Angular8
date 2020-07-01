@@ -3,7 +3,7 @@
  import 'zone.js/dist/zone-error';
 
 
-export const environment = { 
+ export const environment = { 
     production: false,
     // apiUrl: 'http://localhost:4200/register',
     // apiUrl: 'http://localhost:4200/assets/data/userdata.json'  *** Modified 06/05/2020 ***

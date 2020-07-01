@@ -1,3 +1,5 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
@@ -16,6 +18,14 @@ import { ForgotPasswordComponent } from './password/forgot-password/forgot-passw
 import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
 
 const routes: Routes = [
+
+  // { path: '',
+  //   component: HomeComponent },
+
+  // { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  // { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { roles: [Role.Admin]} },
+  // { path: 'admin', component: AdminComponent },
+
   {
     path: '',
     component: HomeComponent,
@@ -27,26 +37,6 @@ const routes: Routes = [
     component: AdminComponent,
     canActivate: [AuthGuard],
     data: { roles: [Role.Admin] }
-  },
-
-  // { path: '',
-  //   component: HomeComponent },
-
-  // { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-  // { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { roles: [Role.Admin]} },
-  // { path: 'admin', component: AdminComponent },
-
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
-  },
-  {
-    path: 'users-list',
-    component: UsersListComponent
   },
   {
     path: 'network',
@@ -60,6 +50,18 @@ const routes: Routes = [
     path: 'settings',
     component: SettingsComponent
   },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  // {
+  //   path: 'users-list',
+  //   component: UsersListComponent
+  // },
   {
     path: 'reset-password',
     component: ResetPasswordComponent
