@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 // import { environment } from '../environments/environment';
 import { User } from '../_models/user';
 
+// const BASEURL = 'http://localhost:3000/api/resetpassword';  // *** Reset Password 07/02/2020 *** //
 @Injectable({ providedIn: 'root' })
 
 export class AuthenticationService {
@@ -15,6 +16,29 @@ export class AuthenticationService {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
     }
+
+  // *** Reset Password 07/02/2020 *** //
+    // registerUser(body): Observable<any> {
+    //     return this.http.post(`${BASEURL}/register`, body);
+    //   }
+
+    //   loginUser(body): Observable<any> {
+    //     return this.http.post(`${BASEURL}/login`, body);
+    //   }
+
+    //   requestReset(body): Observable<any> {
+    //     return this.http.post(`${BASEURL}/req-reset-password`, body);
+    //   }
+
+    //   newPassword(body): Observable<any> {
+    //     return this.http.post(`${BASEURL}/new-password`, body);
+    //   }
+
+    //   ValidPasswordToken(body): Observable<any> {
+    //     return this.http.post(`${BASEURL}/valid-password-token`, body);
+    //   }
+  // *** End Reset Password 07/02/2020 *** //
+
     public get currentUserValue(): User {
         return this.currentUserSubject.value;
     }

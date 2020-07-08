@@ -1,21 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-// import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { first } from 'rxjs/operators';
 
 import { DataService } from '../../_services/data.service';
 import { Subscription } from 'rxjs';
-import { first } from 'rxjs/operators';
 
+import { AlertService } from '../../_services/alert.service';
 import { User } from '../../_models/user';
 import { UserService } from '../../_services/user.service';
 import { AuthenticationService } from '../../_services/authentication.service';
 import { HttpClient } from '@angular/common/http';
-// import { AlertService } from '../../_services/alert.service';
-
-
-
-
-
 
 @Component({
   selector: 'app-settings',
@@ -23,78 +18,27 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./settings.component.css']
 })
 
-// export class SettingsComponent implements OnInit {
-  // settingsForm: FormGroup;
-  // loading = false;
-  // submitted = false;
-  // returnUrl: string;
-  // error = '';
-
-  // constructor(
-    //   private formBuilder: FormBuilder,
-    //   private route: ActivatedRoute,
-    //   private router: Router,
-    //   private authenticationService: AuthenticationService,
-    //   private alertService: AlertService) { 
-    //       if (this.authenticationService.currentUserValue) {
-    //         this.router.navigate(['/']);
-    //     }
-    //  }
-
-  // ngOnInit() {
-  //   this.settingsForm = this.formBuilder.group({
-  //     username: ['', Validators.required],
-  //     password: ['', Validators.required]
-  //   });
-  //   // get return url from route parameters or default to '/'
-  //   this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-  // }
-
-   // convenience getter for easy access to form fields
-//   get f() { return this.settingsForm.controls; }
-
-//   onSubmit() {
-//     this.submitted = true;
-
-//     this.alertService.clear();
-
-//     // stop here if form is invalid
-//     if (this.settingsForm.invalid) {
-//         return;
-//     }
-
-//     this.loading = true;
-//     this.authenticationService.login(this.f.username.value, this.f.password.value)
-//         .pipe(first())
-//         .subscribe(
-//           data => {
-//             this.router.navigate([this.returnUrl]);
-//           },
-//           error => {
-//             this.alertService.error(error);
-//             this.loading = false;
-//           }
-//         );
-//   }
-
-// }
-
-
-
 export class SettingsComponent implements OnInit {
+  settingsForm: FormGroup;
   loading = false;
+  submitted = false;
+
   contacts: any;
   selectedContact: any;
   users: User[] = [];
   currentUser: User;
   currentUserSubscription: Subscription;
   userFromApi: User;
+  alertService: any;
 
 constructor(
   public dataService: DataService,
+  private formBuilder: FormBuilder,
+  private router: Router,
   private authenticationService: AuthenticationService,
   private userService: UserService,
-  private http: HttpClient
+  // private httpClient: HttpClient,
+  private http: HttpClient,
   ) {
     // this.currentUser = this.authenticationService.currentUserValue;
      this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
@@ -103,6 +47,18 @@ constructor(
   }
 
   ngOnInit() {
+    this.settingsForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      DateOfBirth: ['', Validators.required],
+      gender: ['', Validators.required],
+      country: ['', Validators.required],
+      state: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
+      username: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+  });
     this.loading = true;
     // this.userService.getById(this.selectedContact.id).pipe(first()).subscribe(user => {
     //     this.loading = false;
@@ -112,6 +68,32 @@ constructor(
       this.users = users;
     });
   }
+
+  onSubmit() {
+    this.submitted = true;
+
+  // reset alerts on submit
+   this.alertService.clear();  // *** Disabled 06/10/2020 ***
+
+  // stop here if form is invalid
+    if (this.settingsForm.invalid) {
+      return;
+  }
+
+    this.loading = true;
+    this.userService.register(this.settingsForm.value)
+      .pipe(first())
+      .subscribe(
+          data => {
+              this.alertService.success('Registration successful', true);
+              this.router.navigate(['/login']);
+          },
+          error => {
+            this.alertService.error(error);
+            this.loading = false;
+          });
+  }
+
 
   deleteUser(id: number) {
     this.userService.delete(id)

@@ -58,10 +58,10 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent
   },
-  // {
-  //   path: 'users-list',
-  //   component: UsersListComponent
-  // },
+  {
+    path: 'users-list',
+    component: UsersListComponent
+  },
   {
     path: 'reset-password',
     component: ResetPasswordComponent

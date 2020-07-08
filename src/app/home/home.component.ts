@@ -8,6 +8,8 @@ import { UserService } from '../_services/user.service';
 
 import { HttpClient, HttpEventType, HttpClientModule } from '@angular/common/http';
 
+// import { FormArray, FormControl } from '@angular/forms'; // *** added for textarea 07/07/2020 ***//
+
 @Component({
   // selector: 'app-home',
   templateUrl: './home.component.html',
@@ -22,6 +24,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   loading = false;
   selectedFile: File = null;
 
+  // *** added line 28 to 33 for textarea 07/07/2020 ***//
+  // textArea: FormControl = new FormControl('');
+  // formArray: FormArray;
+  // tags: any;
+// array to hold prev changes, which is used to avoid stack size exceeded error
+// as this is cyclic behavior
+  // formArrayChanges: string[] = [];
+
   fileData: File = null;
   previewUrl: any = null;
   fileUploadProgress: string = null;
@@ -30,12 +40,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(
     private authenticationService: AuthenticationService,
     private userService: UserService,
-    private http: HttpClient   
+    private http: HttpClient
     ) {
       this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
       // this.currentUser = x);
       this.currentUser = user;
     });
+      // this.formArray = new FormArray([]); // *** added for textarea 07/07/2020 ***//
   }
 
   ngOnInit() {
@@ -46,6 +57,32 @@ export class HomeComponent implements OnInit, OnDestroy {
   fileProgress(fileInput: any) {
     this.fileData = fileInput.target.files[0] as File;
     this.preview();
+
+// *** added line 62 to 85 for textarea 07/07/2020 ***//
+    // this.textArea.valueChanges.subscribe((textBodyText: string) => {
+    //   const regex = /[$][{][1-9][0-9]*[:][a-zA-Z0-9 ]{0,}[}]/g;
+    //   const foundStrings = textBodyText.match(regex) || [];
+
+    //   this.tags = new Object();
+    //   let match;
+
+    //   // tslint:disable-next-line: no-conditional-assignment
+    //   while ((match = regex.exec(textBodyText)) != null) {
+    //     this.tags[match.index] = match[0];
+    //   }
+    //   // clear saved array
+    //   this.formArray.clear();
+
+    //   foundStrings.map(str => {
+    //     // get id and value of control
+    //     const id = str.substring(2, str.indexOf(':'));
+    //     const value = str.substring(str.indexOf(':') + 1, str.indexOf('}'));
+
+    //     this.formArray.push(new FormControl(value));
+    //   });
+    // });
+
+    // this.textArea.setValue('${1:scan1}\n${1:scan1}\n${2:scan2}\n${3:scan3}');
  }
 
   preview() {

@@ -2,12 +2,16 @@ import { Role } from './role';
 
 export class User {
     id: number;
-    username: string;
-    password: string;
     firstName: string;
     lastName: string;
+    DateOfBirth: string;
+    gender: string;
+    country: string;
+    state: string;
+    userName: string;
     email: string;
-    // DOB: string;
+    phoneNumber: string;
+    password: string;
     role: Role;
     // token?: string; *** Modified 06/09/2020 ***
     token: string;

@@ -9,13 +9,20 @@ import { User } from '../_models/user';
 @Injectable({ providedIn: 'root' })
 
 export class UserService {
+
     // apiBaseURL: string;  // *** disabled 06/27/2020 ***
+    apiUrl = '';
     constructor(private http: HttpClient) { }
 
     getAll() {
         return this.http.get<User[]>(`${environment.apiUrl}/users`);
         // return this.http.get<User[]>(`/users`); // *** Modified 06/09/2020 ***
     }
+
+    // *** Added on 07/07/2020 *** //
+    getUser(username: string) { 
+        return this.http.get(`${this.apiUrl}/${username}`);
+      }
 
     register(user: User) {
         return this.http.post(`${environment.apiUrl}/users/register`, user);

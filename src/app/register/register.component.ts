@@ -14,11 +14,12 @@ import { AuthenticationService } from '../_services/authentication.service';
 })
 
 export class RegisterComponent implements OnInit {
-  registerForm: FormGroup;
-  loading = false;
-  submitted = false;
+    registerForm: FormGroup;
+    loading = false;
+    submitted = false;
+    error: string;
 
-  constructor( 
+  constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private authenticationService: AuthenticationService,
@@ -35,8 +36,13 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
+      DateOfBirth: ['', Validators.required],
+      gender: ['', Validators.required],
+      country: ['', Validators.required],
+      state: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
       username: ['', Validators.required],
-      email: ['', [Validators.required,Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
   });
   }

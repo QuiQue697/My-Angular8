@@ -1,4 +1,7 @@
 <!-- <h2>Login</h2> -->
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+<div *ngIf="success" class="alert alert-success">{{success}}</div>
+
 <div class="row">
     <div class="col-12">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -24,7 +27,7 @@
                                 <label for="password">Password</label>
                                 <input type="password" placeholder="Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                                 <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                    <div *ngIf="f.password.errors.required">Password is required and must be at least 6 digits</div>
                                 </div>
                             </div>
                         </td>

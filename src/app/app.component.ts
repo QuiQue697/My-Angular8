@@ -2,7 +2,7 @@ import { Component, OnInit, Directive } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './_services/authentication.service';
 import { User } from './_models/user';
-import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-root', 
@@ -15,7 +15,6 @@ export class AppComponent {
   currentUser: User;
 
     constructor(
-        private httpClient: HttpClient,
         private router: Router,
         private authenticationService: AuthenticationService
     ) {

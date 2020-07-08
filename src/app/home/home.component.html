@@ -9,7 +9,8 @@
                     <tr>
                         <th scope="col">
                             <img id="friends" src="../assets/friend-02.png" width="140" height="140" alt="friend 2">
-                            <figcaption style="text-align: center;">{{currentUser.firstName}}</figcaption>
+                            <img [src]="currentUser.avatar_url">
+                            <figcaption style="text-align: center;">{{ currentUser.firstName }}</figcaption>
                         </th>
                     </tr>
                 </thead>
@@ -44,6 +45,15 @@
                         <div class="mb-3" *ngIf="uploadedFilePath">
                             {{uploadedFilePath}}
                         </div>
+                        <div class="field mb-3">
+                            <!-- <img [src]="previewUrl" height="300" />-->
+                            <!-- <textarea name="message" placeholder="Existing Posts or Pics" cols="30" rows="10" [formControl]="textArea"></textarea> -->
+                            <!-- <mat-form-field>
+
+                            </mat-form-field> -->
+                            <textarea name="message" placeholder="Existing Posts or Pics" cols="30" rows="10"></textarea>
+                        </div>
+
                         <div class="form-group">
                             <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
 

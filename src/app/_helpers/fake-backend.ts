@@ -6,6 +6,13 @@ import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 // array in local storage for registered users
 let users = JSON.parse(localStorage.getItem('users')) || [];
 
+// import { User, Role } from '../_models';
+
+// const users: User[] = [
+//     { id: 1, username: 'admin', password: 'admin', firstName: 'Admin', lastName: 'User', role: Role.Admin },
+//     { id: 2, username: 'user', password: 'user', firstName: 'Normal', lastName: 'User', role: Role.User }
+// ];
+
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -14,6 +21,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         // wrap in delayed observable to simulate server api call
         return of(null)
             .pipe(mergeMap(handleRoute))
+            // tslint:disable-next-line: max-line-length
             .pipe(materialize())  // call materialize and dematerialize to ensure delay even if an error is thrown (https://github.com/Reactive-Extensions/RxJS/issues/648)
             .pipe(delay(500))
             .pipe(dematerialize());
@@ -42,11 +50,16 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             if (!user) { return error('Username or password is incorrect'); }
             return ok({
                 id: user.id,
-                username: user.username,
+                userName: user.userName,
                 firstName: user.firstName,
                 lastName: user.lastName,
+                DateOfBirth: user.DateOfBirth,
+                gender: user.gender,
+                country: user.country,
+                state: user.state,
                 email: user.email,
-                photoId: user.photo,
+                phoneNumber: user.phoneNumber,
+                photoId: user.photoId,
                 token: 'fake-jwt-token'
             });
         }

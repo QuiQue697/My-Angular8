@@ -18,7 +18,7 @@ export class AdminComponent implements OnInit {
 
      constructor(
           private authenticationService: AuthenticationService,
-          private userService: UserService,  // *** MDisabled on 06/26/2020
+          private userService: UserService,  // *** Disabled on 06/26/2020
          ) {
 
            this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
@@ -33,4 +33,14 @@ export class AdminComponent implements OnInit {
             this.users = users;
         });
     }
+    deleteUser(id: number) {
+      this.userService.delete(id).pipe(first()).subscribe(() => {
+          this.loadAllUsers()
+      });
+    }
+    private loadAllUsers() {
+      this.userService.getAll().pipe(first()).subscribe(users => {
+          this.users = users;
+      });
+  }
 }

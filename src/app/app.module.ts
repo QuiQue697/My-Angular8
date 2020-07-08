@@ -26,6 +26,9 @@ import { UsersListComponent } from './user/users-list/users-list.component';
 import { ForgotPasswordComponent } from './password/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
 import { UploadComponent } from './upload/upload.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// import { MatSliderModule } from '@angular/material/slider';
 
 
 @NgModule({
@@ -33,7 +36,9 @@ import { UploadComponent } from './upload/upload.component';
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    // MatSliderModule,
   ],
   declarations: [
     AppComponent,
